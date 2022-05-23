@@ -35,14 +35,14 @@ model_load_state.text('模型載入完成: Loading Model...done!')
 content_image, style_image = st.beta_columns(2)
 
 with content_image:
-    st.write('## Content Image...')
+    st.write('## 原始相片...')
     chosen_content = st.radio(
         '  ',
         ("Upload", "URL"))
     if chosen_content == 'Upload':
         st.write(f"You choosed {chosen_content}!")
         content_image_file = st.file_uploader(
-            "Pick a Content image", type=("png", "jpg"))
+            "選擇原始相片: Pick a Content image", type=("png", "jpg"))
         try:
             content_image_file = content_image_file.read()
             content_image_file = transform_img(content_image_file)
@@ -68,14 +68,14 @@ with content_image:
         pass
 
 with style_image:
-    st.write('## Style Image...')
+    st.write('## 風格圖片...')
     chosen_style = st.radio(
         ' ',
         ("Upload", "URL"))
     if chosen_style == 'Upload':
         st.write(f"You choosed {chosen_style}!")
         style_image_file = st.file_uploader(
-            "Pick a Style image", type=("png", "jpg"))
+            "選擇風格圖片: Pick a Style image", type=("png", "jpg"))
         try:
             style_image_file = style_image_file.read()
             style_image_file = transform_img(style_image_file)
