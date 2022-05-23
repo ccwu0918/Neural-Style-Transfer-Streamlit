@@ -26,10 +26,10 @@ def load_model():
     return hub_model
 
 
-model_load_state = st.text('Loading Model...')
+model_load_state = st.text('載入模型: Loading Model...')
 model = load_model()
 # Notify the reader that the data was successfully loaded.
-model_load_state.text('Loading Model...done!')
+model_load_state.text('模型載入完成: Loading Model...done!')
 
 
 content_image, style_image = st.beta_columns(2)
@@ -62,7 +62,7 @@ with content_image:
         except:
             pass
     try:
-        st.write('Content Image...')
+        st.write('原始相片: Content Image...')
         st.image(imshow(content_image_file))
     except:
         pass
@@ -95,12 +95,12 @@ with style_image:
         except:
             pass
     try:
-        st.write('Style Image...')
+        st.write('風格圖片: Style Image...')
         st.image(imshow(style_image_file))
     except:
         pass
 
-predict = st.button('Start Neural Style Transfer...')
+predict = st.button('風格轉移: Start Neural Style Transfer...')
 
 
 if predict:
@@ -120,7 +120,7 @@ if predict:
 
         final_image = tensor_to_image(stylized_image)
 
-    st.write('Resultant Image...')
+    st.write('風格轉移圖片: Resultant Image...')
     st.image(final_image)
 
     try:
